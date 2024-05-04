@@ -59,7 +59,6 @@ namespace Common.Graphics
             return new Tuple<int, int>(foundMatrix, foundIdx);
         }
 
-
         public ItemData Add()
         {
             Tuple<int, int> found = GetFreePos();
@@ -169,6 +168,9 @@ namespace Common.Graphics
             {
                 ItemData data = _items[matrix][idx];
                 data.position = position;
+                _items[matrix][idx] = data;
+
+                UpdateMatrix(matrix, idx);
             }
         }
 
